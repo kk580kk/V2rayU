@@ -5,7 +5,7 @@ V2rayU 是一款v2ray mac客户端,用于科学上网,使用swift4.2编写,基�
 
 ### 主要特性
 ----
-- **支持协议:** vmess:// 和 ss:// 和 ssr:// 协议,支持socks5协议
+- **支持协议:** vmess:// | vless:// | ss:// | ssr:// 协议,支持socks5协议,支持xlts
 - **支持导入**: 支持二维码,粘贴板导入,本地文件及url导入
 - **支持编辑**: 导入配置后可以手动更改配置信息
 - **手动配置**: 支持在导入或未导入情况下手动配置主要参数
@@ -18,7 +18,7 @@ V2rayU 是一款v2ray mac客户端,用于科学上网,使用swift4.2编写,基�
 ### 下载安装
 - 方式一: 使用homebrew命令安装
 ```
-  brew cask install v2rayu
+  brew install --cask v2rayu
 ```
 - 方式二: 下载最新版安装
 > [https://github.com/yanue/V2rayU/releases](https://github.com/yanue/V2rayU/releases)
@@ -76,7 +76,17 @@ v2ray模板: [https://github.com/KiriKira/vTemplate](https://github.com/KiriKira
 cd /Applications/V2rayU.app/Contents/Resources/
 ./v2ray-core/v2ray -config ./config.json
 ```
+### 彻底卸载
+(推荐使用AppCleaner)
+```
+cd ~/Library/LaunchAgents/
+/bin/launchctl remove yanue.v2rayu.v2ray-core
+/bin/launchctl remove yanue.v2rayu.http
 
+rm -f ~/Library/LaunchAgents/yanue.v2rayu.v2ray-core.plist
+rm -f ~/Library/Preferences/net.yanue.V2rayU.plist
+rm -f ~/Library/Logs/V2rayU.log
+```
 ### 相关问题
 **1. 闪退**
 
@@ -142,3 +152,6 @@ cd /Applications/V2rayU.app/Contents/Resources/
 
 ### License
 	GPLv3
+
+### Thanks
+<p><a href=https://www.jetbrains.com/?from=yanue><img src="https://github.com/yanue/V2rayU/blob/master/Build/jetbrains.png?raw=true" width="10%" alt="jetbrains"></a></p>
